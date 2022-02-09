@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 
 st.title('Uber pickups in NYC')
-st.title('testtt')
 
 
 DATE_COLUMN = 'date/time'
