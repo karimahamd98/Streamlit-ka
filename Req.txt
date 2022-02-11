@@ -385,3 +385,4 @@ zope	==	1
 zope.event	==	4.5.0
 zope.interface	==	5.4.0
 zstd	==	1.4.9
+plotly-express== 0.4.1
