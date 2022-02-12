@@ -2,9 +2,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-from PIL import Image
-image = Image.open('banner-covid-19-1280x549.webp')
-st.image(image, width= 600)
 dfm = pd.read_csv('C:\\Users\\10User\\Documents\\MSBA\\Spring 22\\Data sets\\global_covid19_mortality_rates(cleaned).csv')
 
 st.title("Interactive maps showing Covid-19 (mid-late 2020) deaths globally for each country:")
