@@ -1,0 +1,2 @@
+C:\Users\10User\anaconda3\envs\rstudio
+C:\Users\10User\anaconda3
