@@ -17,7 +17,7 @@ Dataset:Top 50 Spotify Songs - 2019
 
 Link: https://www.kaggle.com/leonardopena/top50spotify2019''')
 
-df1 = pd.read_csv("C:\\Users\\10User\\Documents\\MSBA\\Spring 22\\MSBA325 - Data Visualization &Communicat\\top50.csv", encoding= 'unicode_escape')
+df1 = pd.read_csv("https://raw.githubusercontent.com/karimahamd98/Streamlit-ka/main/top50.csv")
 
 st.text(" ")
 
