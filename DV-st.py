@@ -231,6 +231,6 @@ if sbar == "View All":
 
     st.subheader('An animated bar graph showing the popularity of each song genre with respect to the song length:')
     fig = px.bar(df1, x="Genre", y="Popularity",color="Genre",
-      animation_frame="Length",animation_group="Genre",range_y=[0,400], range_x=[0,20])
+    animation_frame="Length",animation_group="Genre",range_y=[0,400], range_x=[0,20])
     fig.show()
     st.write(fig)
