@@ -7,8 +7,9 @@ from plotly.graph_objs import *
 init_notebook_mode()
 import plotly.express as px
 from PIL import Image
-image = Image.open('spotify-logo-dark-mode-vector-37694344-removebg-preview.png')
-st.image(image, width= 490) 
+
+#image = Image.open('spotify-logo-dark-mode-vector-37694344-removebg-preview.png')
+#st.image(image, width= 490) 
 
 st.title("Top 50 Spotify Songs - 2019")
 st.subheader('''Data source: Kaggle
