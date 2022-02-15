@@ -122,8 +122,7 @@ if sbar == "Song genre popularity with respect to song length":
     st.write(fig)
 if sbar == "Other":
     
-    
-    
+   
     st.header("Covid-19 deaths visualized:")
     dfm = pd.read_csv('https://raw.githubusercontent.com/karimahamd98/Streamlit-ka/main/global_covid19_mortality_rates(cleaned).csv')
 
