@@ -7,8 +7,6 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as mtick
 from matplotlib.ticker import PercentFormatter
 import io
-from pathlib import Path
-
 
 
 st.set_page_config(layout="wide")
@@ -49,9 +47,10 @@ with col1:
     #nobel = pd.read_csv("C:\\Users\\10User\\Documents\\MSBA\\Spring 22\\MSBA370 - Data Driven Digital Marketing\\DDDM - Pre-Streamlit Exercise Part 1\\datasets\\nobel.csv")
     #st.write(nobel.head(10))
     
-    dddm_csv = Path(__file__).parents[1] / 'C:\\Users\\10User\\Documents\\MSBA\\Spring 22\\MSBA370 - Data Driven Digital Marketing\\DDDM - Pre-Streamlit Exercise Part 1\\datasets\\nobel.csv'
-    nobelz = pd.read_csv(dddm_csv)
-    st.write(nobelz.head(10))
+    url = 'https://raw.githubusercontent.com/karimahamd98/Streamlit-ka/main/nobel.csv'
+    nobel1 = pd.read_csv(url)
+    st.write(nobel1.head(10))
+    
 
     st.subheader("Part 2 - Which country had most laureats?")
     st.markdown('''
