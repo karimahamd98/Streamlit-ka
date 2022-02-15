@@ -48,7 +48,7 @@ with col1:
     #st.write(nobel.head(10))
     
     url = 'https://raw.githubusercontent.com/karimahamd98/Streamlit-ka/main/nobel.csv'
-    nobel1 = pd.read_csv(url)
+    nobel = pd.read_csv(url)
     st.write(nobel1.head(10))
     
 
