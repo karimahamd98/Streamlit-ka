@@ -49,7 +49,7 @@ with col1:
     
     url = 'https://raw.githubusercontent.com/karimahamd98/Streamlit-ka/main/nobel.csv'
     nobel = pd.read_csv(url)
-    st.write(nobel1.head(10))
+    st.write(nobel.head(10))
     
 
     st.subheader("Part 2 - Which country had most laureats?")
