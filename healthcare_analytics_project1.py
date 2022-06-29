@@ -28,7 +28,7 @@ st.set_page_config(
 )
 
 #Reading the data from the CSV file
-df = pd.read_csv('C:\\Users\\10User\\Desktop\\diabetes.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/karimahamd98/Streamlit-ka/main/diabetes.csv')
 
 
 #Dividing the page into columns to organise the placment of a picture
