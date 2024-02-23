@@ -7,11 +7,7 @@ import seaborn as sns
 import plotly.express as px
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
-import plotly.offline as py
-from plotly.offline import download_plotlyjs, init_notebook_mode, plot, iplot
-import plotly.tools as tls
 import plotly.figure_factory as ff
-py.init_notebook_mode(connected=True)
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
@@ -31,7 +27,7 @@ st.set_page_config(
 df = pd.read_csv('https://raw.githubusercontent.com/karimahamd98/Streamlit-ka/main/diabetes.csv')
 
 
-#Dividing the page into columns to organise the placment of a picture
+#Dividing the page into columns to organize the placement of a picture
 col1, col2, col3 = st.columns([5,6,1])
 
 
@@ -55,8 +51,7 @@ styles={
 })
 
 
-
-#Intiating each page and it's content
+#Intiating each page and its content
 if selected == "Home":
 
     st.markdown(f'<h1 style="color:#89CFF0;font-size:35px;">{"Overview"}</h1>', unsafe_allow_html=True)
@@ -96,20 +91,11 @@ Other types of diabetes Less common types include monogenic diabetes, which is a
         st.write("")
 
 
-
-
-
-
-
-
-
-
-
 if selected == "EDA":
 
     st.markdown(f'<h1 style="color:#89CFF0;font-size:35px;">{"Visuals & Exploratory Analysis"}</h1>', unsafe_allow_html=True)
     st.markdown("""---""")
-    #Adding metrics (cards) that provide quick over view (used averages) of certain numbers in the data
+    #Adding metrics (cards) that provide a quick overview (used averages) of certain numbers in the data
     age = statistics.mean(df['Age'])
     bmi_avg= statistics.mean(df['BMI'])
     pressure_avg= statistics.mean(df['BloodPressure'])
@@ -134,9 +120,6 @@ if selected == "EDA":
 
     st.markdown("""---""")
 
-
-
-
     col1, col2 = st.columns([8,8])
 
     #Plotting a pie chart
@@ -144,12 +127,10 @@ if selected == "EDA":
         trace = go.Pie(labels = ['Healthy','Diabetic'], values = df['Outcome'].value_counts(),
                    textfont=dict(size=15), opacity = 0.8,
                    marker=dict(colors=['darkturquoise', 'aliceblue'],
-                   line=dict(color='#000000', width=1.5)))
-
-
+                   line=dict(
+                       color='#000000', width=1.5)))
 
         fig = dict(data = [trace])
-        py.iplot(fig)
 
         st.write(" ")
         st.write(" ")
@@ -160,11 +141,7 @@ if selected == "EDA":
         st.caption("65% of the total population are healthy and 35% are diabetic ")
         col1.plotly_chart(fig,use_container_width = True)
 
-
-
-
         st.markdown(f'<h1 style="color:#89CFF0;font-size:31.5px;">{"Automated visuals"}</h1>', unsafe_allow_html=True)
-
 
         st.subheader("Scatter plot")
 
@@ -202,20 +179,14 @@ if selected == "EDA":
 
             st.plotly_chart(fig,use_container_width = True)
 
-
-
         #The select boxes to pick out the two inputs to place in the function
         first = st.selectbox("Choose the first variable:",
         ("Pregnancies","Glucose","BloodPressure","SkinThickness","Insulin","BMI","DiabetesPedigreeFunction","Age"))
-
-
 
         second = st.selectbox("Choose the second variable:",
         ("Pregnancies","Glucose","BloodPressure","SkinThickness","Insulin","BMI","DiabetesPedigreeFunction","Age"))
         #Generating the plot based on the two inputs
         plot_feat1_feat2(first,second)
-
-
 
     with col2:
         #Plotting a correlation map
@@ -226,10 +197,9 @@ if selected == "EDA":
                               x = matrix_cols,
                               y = matrix_cols,
                               colorscale='teal',
-                              colorbar   = dict() ,
+                              colorbar   = dict(),
                              )
         layout = go.Layout(dict(title = 'Correlation Matrix for variables',
-
                                 margin  = dict(r = 0 ,l = 100,
                                                   t = 0,b = 100,
                                                 ),
@@ -238,8 +208,6 @@ if selected == "EDA":
                                   )
                              )
         fig = go.Figure(data = [trace],layout = layout)
-        py.iplot(fig)
-
 
         st.write(" ")
         st.write(" ")
@@ -249,7 +217,6 @@ if selected == "EDA":
         st.latex("")
         st.caption("The closer the correlation is to 0, the weaker it is. The closer it is to +/-1, the stronger it is")
         col2.plotly_chart(fig,use_container_width = True)
-
 
         st.write(" ")
         st.write(" ")
@@ -273,13 +240,9 @@ if selected == "EDA":
 
             fig['layout'].update(title = data_select)
 
-
             fig = go.Figure(fig)
 
-
             st.plotly_chart(fig,use_container_width = True)
-
-
 
         st.subheader("Distribution plot")
         #Setting the inputs selectors for the Distribution plot
@@ -290,30 +253,21 @@ if selected == "EDA":
 
         plot_distribution(first1, binz)
 
-
-
-
-
-
 #Setting the prediction page
 if selected == "Prediction":
-
-
-    # Spliting dataset into training set and test set
+    # Splitting dataset into training set and test set
     X_train, X_test, y_train, y_test = train_test_split(df[['Pregnancies', 'Glucose','BloodPressure','SkinThickness','Insulin','BMI','DiabetesPedigreeFunction','Age']], df['Outcome'], test_size=0.25, random_state=0)
-    #Creating the LogisticRegression model
+    # Creating the LogisticRegression model
     model_reg = LogisticRegression(C=1)
     model_reg.fit(X_train, y_train)
     y_pred = model_reg.predict(X_test)
 
     classifier = model_reg
 
-
-
     st.markdown(f'<h1 style="color:#89CFF0;font-size:35px;">{"Diabetes Prediction (for females)"}</h1>', unsafe_allow_html=True)
     st.markdown("""---""")
 
-    #Setting the inputs and naming them as variables
+    # Setting the inputs and naming them as variables
     name = st.text_input("Name:")
     pregnancy = st.number_input("No. of times pregnant:")
     glucose = st.number_input("Plasma Glucose Concentration (120 avg) :")
@@ -324,7 +278,7 @@ if selected == "Prediction":
     dpf = st.number_input("Diabetes Pedigree Function(0.47 avg):")
     age = st.number_input("Age:")
     submit = st.button('Predict')
-    #Setting an IF statment to predict using the model, if the prediction was 0 then a healthy message will appear else otherwise
+    # Setting an IF statement to predict using the model, if the prediction was 0 then a healthy message will appear else otherwise
     if submit:
             prediction = classifier.predict([[pregnancy, glucose, bp, skin, insulin, bmi, dpf, age]])
             if prediction == 0:
